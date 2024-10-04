@@ -1,0 +1,27 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Learn node Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ViTrungDev/Node-Express.git"
+  },
+  "keywords": [
+    "js",
+    "express",
+    "backend"
+  ],
+  "author": "Trung",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ViTrungDev/Node-Express/issues"
+  },
+  "homepage": "https://github.com/ViTrungDev/Node-Express#readme",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
