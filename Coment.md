@@ -7,3 +7,5 @@ cài đặt thư viện nodemon: npm i nodemon --save-dev
     "start": "nodemon --inspect index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
+
+cài đặt thư viện morgan: npm i morgan --save-dev
