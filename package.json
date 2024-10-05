@@ -4,6 +4,7 @@
   "description": "Learn node Express",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon --inspect index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,5 +24,8 @@
   "homepage": "https://github.com/ViTrungDev/Node-Express#readme",
   "dependencies": {
     "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }
