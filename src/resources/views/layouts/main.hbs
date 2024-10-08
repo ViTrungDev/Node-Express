@@ -1,0 +1,34 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {{!-- <div class="app">
+      <header>
+        {{! Nội dung tĩnh }}
+        <h1>header</h1>
+      </header>
+      <div class="container">
+        {{! đi vào file main.handlebars để lấy nội dung chính nội dung ko tĩnh }}
+        {{{body}}}
+      </div>
+      <footer>
+        {{! Nội dung tĩnh }}
+        <h1>footer</h1>
+      </footer>
+    </div> --}}
+    {{!-- =========================== cách 2 =========================== --}}
+    <div class="app">
+      {{!-- nạp header bằng cú pháp {{> header}} --}}
+      {{> header }}
+
+     <div class="container">
+      {{{body}}}
+      
+      {{> footer}}
+     </div>
+    </div>
+  </body>
+</html>
