@@ -4,6 +4,7 @@ const express = require("express");
 const morgan = require("morgan");
 // import Handlebars
 const handlebars = require("express-handlebars");
+const hbs = require("hbs")
 
 const app = express();
 const port = 8080;
