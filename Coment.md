@@ -10,7 +10,17 @@ cài đặt thư viện nodemon: npm i nodemon --save-dev
 
 cài đặt thư viện morgan: npm i morgan --save-dev
 
----********************\*\*\*********************
+---**\*\*\*\***\*\*\*\***\*\*\*\***\*\*\***\*\*\*\***\*\*\*\***\*\*\*\***
 
 sử dụng thư viện express Handlebars
 câu lệnh install: npm install express-handlebars
+
+<!-- install sass -->
+
+install sass: npm install node-sass --save-dev
+thêm "scripts": {
+"start": "nodemon --inspect src/index.js",
+"watch:scss": "node-sass --watch src/resources/scss/app.scss -o src/resources/public/css",
+"test": "echo \"Error: no test specified\" && exit 1"
+},
+dùng câu lệnh: npm run watch:scss

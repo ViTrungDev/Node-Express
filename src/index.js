@@ -9,6 +9,9 @@ const hbs = require("hbs")
 const app = express();
 const port = 8080;
 
+
+app.use(express.static(path.join(__dirname,"public")));
+
 // use morgan
 app.use(morgan("combined"));
 
