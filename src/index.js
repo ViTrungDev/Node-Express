@@ -4,13 +4,13 @@ const express = require("express");
 const morgan = require("morgan");
 // import Handlebars
 const handlebars = require("express-handlebars");
-const hbs = require("hbs")
+const hbs = require("hbs");
 
 const app = express();
 const port = 8080;
 
-
-app.use(express.static(path.join(__dirname,"public")));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("public"));
 
 // use morgan
 app.use(morgan("combined"));
