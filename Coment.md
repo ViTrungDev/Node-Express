@@ -20,7 +20,7 @@ câu lệnh install: npm install express-handlebars
 install sass: npm install node-sass --save-dev
 thêm "scripts": {
 "start": "nodemon --inspect src/index.js",
-"watch:scss": "node-sass --watch src/resources/scss/app.scss -o src/resources/public/css",
+"watch": "node-sass --watch src/resources/scss -o -w src/public/css",
 "test": "echo \"Error: no test specified\" && exit 1"
 },
 dùng câu lệnh: npm run watch:scss
