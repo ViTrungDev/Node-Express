@@ -8,6 +8,7 @@ const hbs = require("hbs");
 
 const app = express();
 const port = 8080;
+const route = require("./routes");
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -28,15 +29,9 @@ app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources/views"));
 app.set("partials", path.join(__dirname, "resources/partials"));
 
-app.get("/home", (req, res) => {
-  res.render("home");
-});
-app.get("/new", (req, res) => {
-  res.render("new");
-});
-app.get("/form", (req, res) => {
-  res.render("form");
-});
+// Routes init
+route(app);
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
