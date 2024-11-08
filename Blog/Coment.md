@@ -29,3 +29,20 @@ fix lỗi node-sass không tương thích với phiên bản Node.js hoặc đan
 hay thế node-sass bằng sass: node-sass đã bị ngừng hỗ trợ, vì vậy bạn nên chuyển sang sử dụng sass. Chạy các lệnh sau để gỡ bỏ node-sass và cài đặt sass:
 npm uninstall node-sass
 npm install sass --save-dev
+
+/* install library prettier, lint-staged, husky*/
+ npm i prettier lint-staged husky
+    "beautiful": "prettier docs package.json 'src/**/*.{js,json,scss}' --tab-width 4 --write --single-quote --trailing-comma all",
+
+lint-staged
+ "lint-staged": {
+    "src/**/*.{js,json,scss": "prettier docs package.json --tab-width 4 --write --single-quote --trailing-comma all"
+  },
+
+    "beautiful": "lint-staged",
+
+husky:
+  "husky":{
+"hooks":{
+  "pre-commit":"lint-staged"
+}

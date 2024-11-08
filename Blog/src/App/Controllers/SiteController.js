@@ -1,13 +1,13 @@
 class SiteController {
   // [Get] / home
   index(req, res) {
-    res.render("home");
-  };
+    res.render('home');
+  }
 
   // [Get] form
-  form(rep,res){
-    res.render("form");
+  form(rep, res) {
+    res.render('form');
   }
 }
 
-module.exports = new SiteController;
+module.exports = new SiteController();
