@@ -1,4 +1,4 @@
-const Course = require("../Models/Course");
+const Course = require('../Models/Course');
 
 class SiteController {
     // [GET] /home
@@ -7,13 +7,13 @@ class SiteController {
             const courses = await Course.find({});
             res.json(courses);
         } catch (err) {
-            res.status(400).json({ error: "Message!!!" });
+            res.status(400).json({ error: 'Message!!!' });
         }
     }
 
     // [GET] /form
     form(req, res) {
-        res.render("form");
+        res.render('form');
     }
 }
 

@@ -1,8 +1,8 @@
 const newRouter = require(`./new`);
-const siteRouter = require("./site");
+const siteRouter = require('./site');
 function routes(app) {
-    app.use("/new", newRouter);
-    app.use("/", siteRouter);
+    app.use('/new', newRouter);
+    app.use('/', siteRouter);
 
     // app.get("/home", (req, res) => {
     //   res.render("home");

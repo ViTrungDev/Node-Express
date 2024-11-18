@@ -46,3 +46,6 @@ husky:
 "hooks":{
   "pre-commit":"lint-staged"
 }}
+
+install mongoose connect db
+npm install mongoose
