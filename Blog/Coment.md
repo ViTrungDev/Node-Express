@@ -37,7 +37,7 @@ npm install sass --save-dev
 lint-staged
  "lint-staged": {
     "src/**/*.{js,json,scss": "prettier docs package.json --tab-width 4 --write --single-quote --trailing-comma all"
-  },
+  },}
 
     "beautiful": "lint-staged",
 
@@ -45,4 +45,4 @@ husky:
   "husky":{
 "hooks":{
   "pre-commit":"lint-staged"
-}
+}}
