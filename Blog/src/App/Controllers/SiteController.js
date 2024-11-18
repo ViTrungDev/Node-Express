@@ -1,11 +1,18 @@
+const Course = require("../Models/Course");
+
 class SiteController {
-    // [Get] / home
-    index(req, res) {
-        res.render("home");
+    // [GET] /home
+    async index(req, res) {
+        try {
+            const courses = await Course.find({});
+            res.json(courses);
+        } catch (err) {
+            res.status(400).json({ error: "Message!!!" });
+        }
     }
 
-    // [Get] form
-    form(rep, res) {
+    // [GET] /form
+    form(req, res) {
         res.render("form");
     }
 }

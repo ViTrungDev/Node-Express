@@ -5,7 +5,10 @@ const morgan = require("morgan");
 // import Handlebars
 const handlebars = require("express-handlebars");
 const hbs = require("hbs");
+const db = require("./config/db/index");
 
+// connect db
+db.connect();
 const app = express();
 const port = 8080;
 const route = require("./routes");
