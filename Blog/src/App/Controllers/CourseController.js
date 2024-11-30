@@ -1,3 +1,11 @@
+const express = require("express");
+const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// const router = require("../../routes/course");
+// app.use("/course", router);
+
 const Course = require("../Models/Course");
 const { mongooseToObject } = require("../../util/mongoose");
 
@@ -14,25 +22,40 @@ class CourseController {
   create(req, res, next) {
     res.render("course/create");
   }
+
   // [GET] course/store
   store(req, res, next) {
-    // res.json(req.body);
-    console.log("videoID" + req.body);
-    // Kiểm tra dữ liệu đầu vào
-    if (!req.body.videoID) {
-      return res.status(400).send("videoID is required");
+    console.log(req.body); // Kiểm tra req.body có chứa dữ liệu không
+
+    const { name, description, image, videoID, level, timestamps } = req.body;
+
+    if (!name || !description || !image || !videoID || !level) {
+      return res.status(400).json({ message: "Missing required fields" });
     }
-    // Tạo dữ liệu khóa học từ dữ liệu form
-    const formData = req.body;
-    formData.image = `https://files.fullstack.edu.vn/f8-prod/${req.body.videoID}/6.png`;
-    const course = new Course(formData);
+
+    const course = new Course({
+      name: name,
+      description: description,
+      image: image,
+      videoID: videoID,
+      level: level,
+      timestamps: timestamps || new Date(), // Set default timestamp if not provided
+    });
+
     course
       .save()
       .then(() => {
-        res.send("Create success!!!");
+        // chuyển hướng khi tạo thành công
+        res.redirect("/");
+        // res.send("Create success!!!");
       })
       .catch(next);
   }
+
+  // store(req, res, next) {
+  //   res.json({ message: "Post successful", data: req.body });
+  //   // res.send("post successful!!");
+  // }
 }
 
 module.exports = new CourseController();

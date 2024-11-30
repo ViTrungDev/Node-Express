@@ -49,3 +49,5 @@ husky:
 
 install mongoose connect db
 npm install mongoose
+
+install npm install mongoose-slug-generator --save: để lấy ra đường dẫn (slug)
