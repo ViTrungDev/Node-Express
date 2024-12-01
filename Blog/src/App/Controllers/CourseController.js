@@ -8,6 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const Course = require("../Models/Course");
 const { mongooseToObject } = require("../../util/mongoose");
+const { Model } = require("mongoose");
 
 class CourseController {
   // [GET]: course/show
@@ -51,11 +52,22 @@ class CourseController {
       })
       .catch(next);
   }
-
-  // store(req, res, next) {
-  //   res.json({ message: "Post successful", data: req.body });
-  //   // res.send("post successful!!");
-  // }
+  // [GET] course/edit
+  edit(req, res, next) {
+    Course.findById(req.params.id)
+      .then((course) =>
+        res.render("course/edit", {
+          course: mongooseToObject(course),
+        })
+      )
+      .catch(next);
+  }
+  // [PUT] course/update
+  update(req, res, next) {
+    Course.updateOne({ _id: req.params.id }, req.body)
+      .then(() => res.redirect("me/stored/courses"))
+      .catch(next);
+  }
 }
 
 module.exports = new CourseController();

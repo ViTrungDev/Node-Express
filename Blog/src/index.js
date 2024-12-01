@@ -1,15 +1,18 @@
 const path = require("path");
 const express = require("express");
+const app = express();
 // import morgan
 const morgan = require("morgan");
 // import Handlebars
 const handlebars = require("express-handlebars");
 const hbs = require("hbs");
 const db = require("./config/db/index");
+const methodOverride = require("method-override");
+app.use(methodOverride("_method"));
 
 // connect db
 db.connect();
-const app = express();
+
 const port = 8080;
 const route = require("./routes");
 
@@ -35,6 +38,9 @@ app.engine(
     extname: ".hbs",
     layoutsDir: path.join(__dirname, "resources/views/layouts"), // Đường dẫn đến layouts
     partialsDir: path.join(__dirname, "resources/views/partials"),
+    helpers: {
+      sum: (a, b) => a + b,
+    },
   })
 );
 app.set("view engine", "hbs");

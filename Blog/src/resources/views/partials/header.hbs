@@ -1,16 +1,40 @@
 <html>
-    <head>
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='stylesheet' href='../../public/css/app.css' />
-    </head>
-    <body>
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <link rel='stylesheet' href='../../../public/css/app.css' />
+</head>
+<body>
 
-        <div class='topnav'>
-            <a class='active' href='/'>Home</a>
-            <a href='#news'>News</a>
-            <a href='#contact'>Contact</a>
-            <a href='#about'>About</a>
-            <a href="../course/create">Đăng khóa học</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse card-nav" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+            </ul>
+            <!-- Thêm ms-auto tại đây để đẩy phần tử sang bên phải -->
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Persion
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="../course/create">Đăng khóa học</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="me/stored/courses">Khóa học của tôi</a></li>
+                        <li><a class="dropdown-item" href="/me/stored/news">Bài đăng của tôi</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-    </body>
+    </div>
+</nav>
+
+</body>
 </html>
