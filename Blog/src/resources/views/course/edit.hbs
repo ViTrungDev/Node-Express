@@ -1,21 +1,23 @@
 <style>
-    .title-edit{
+    .title-edit {
         text-align: center;
     }
-    .wap{
+    .wap {
         display: flex;
         width: 100%;
         margin: 0 auto;
     }
-    .btn{
+    .btn {
         justify-content: center;
         align-items: center;
         margin: 0 auto;
         width: 120px;
     }
 </style>
-<form action="/course/{{course.id}}?_method=PUT" method="post">
-<h1 class="title-edit">Sửa khóa học</h1>
+
+<form action="/course/{{course._id}}?_method=PUT" method="POST">
+    <h1 class="title-edit">Sửa khóa học</h1>
+
     <div class="form-control">
         <label for="name" class="name">Tên khóa học</label><br>
         <input type="text" class="form-control" value="{{course.name}}" id="name" placeholder="Nhập tên khóa học" name="name" required>
@@ -29,14 +31,14 @@
         <input type="text" class="form-control" value="{{course.image}}" id="image" placeholder="URL hình ảnh" name="image" required>
     </div>
     <div class="form-control">
-        <label for="videoID" class="videoID">Video value="" ID</label>
-        <input type="text" class="form-control" value="{{course.videoID}}" id="videoID" placeholder="Nhập Video value="" ID" name="videoID" required>
+        <label for="videoID" class="videoID">Video ID</label>
+        <input type="text" class="form-control" value="{{course.videoID}}" id="videoID" placeholder="Nhập Video ID" name="videoID" required>
     </div>
     <div class="form-control">
         <label for="level" class="level">Trình độ</label>
         <input type="text" class="form-control" value="{{course.level}}" id="level" placeholder="Nhập trình độ" name="level" required>
     </div>
     <div class="wap">
-    <button type="submit" class="btn btn-primary">Sửa</button>
+        <button type="submit" class="btn btn-primary">Sửa</button>
     </div>
 </form>
