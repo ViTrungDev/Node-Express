@@ -1,5 +1,9 @@
 <div class="mt-4">
-    <h1 class="title">Danh sách khóa học</h1>
+    <div>
+        <h1 class="title">Danh sách khóa học</h1>
+        <a href="/me/trash/courses">Thùng rác</a>
+    </div>
+
     <table class="table mt-4">
     <thead>
         <tr>
@@ -23,7 +27,14 @@
             <a href="" class="btn btn-danger" data-bs-toggle="modal" data-id="{{this._id}}" data-bs-target="#delete-course-modal">Xóa</a>
             </td>
         </tr>
+        {{else}}
+        <tr>
+            <td colspan="5" class="text-center">Bạn chưa đăng khóa học nào.
+            <a href="/course/create">Đăng khóa học</a>
+            </td>
+        </tr>
         {{/each}}
+        
     </tbody>
     </table>
 </div>
@@ -45,7 +56,7 @@
         </div>
     </div>
 </div>
-{{!-- delete hidden form --}}
+{{!-- hidden form delete--}}
 <form name="delete-course-form" method="POST"></form>
 <script>
     document.addEventListener("DOMContentLoaded", function () {

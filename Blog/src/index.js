@@ -1,4 +1,5 @@
 const path = require("path");
+const moment = require("moment"); // Thư viện để xử lý ngày tháng
 const express = require("express");
 const morgan = require("morgan");
 const methodOverride = require("method-override");
@@ -7,11 +8,10 @@ const db = require("./config/db/index");
 const routes = require("./routes");
 
 const app = express();
-const port = 8080;
+const port = 8001;
 
 // Middleware
 app.use(morgan("combined"));
-app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,6 +29,15 @@ app.engine(
     partialsDir: path.join(__dirname, "resources/views/partials"),
     helpers: {
       sum: (a, b) => a + b,
+      formatDate: (date, format = "DD/MM/YYYY") => {
+        if (!date || (typeof date !== "string" && !(date instanceof Date))) {
+          return "Invalid date"; // Báo lỗi rõ ràng hơn
+        }
+        if (typeof format !== "string") {
+          format = "DD/MM/YYYY"; // Ensure format is a string
+        }
+        return moment(date).format(format);
+      },
     },
   })
 );
