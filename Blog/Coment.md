@@ -52,3 +52,5 @@ npm install mongoose
 
 install npm install mongoose-slug-generator --save: để lấy ra đường dẫn (slug)
 install npm install method-override để ghi đè post thành put
+
+npm install mongoose-delete: xóa mềm
