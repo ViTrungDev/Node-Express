@@ -15,6 +15,16 @@ class MeController {
       )
       .catch(next);
   }
+  // [GET] /strash/courses
+  strashCourses(req, res, next) {
+    Course.findDeleted({ deletedAt: { $ne: null } })
+      .then((course) =>
+        res.render("me/strashCourses", {
+          course: mutipMongooseToObject(course),
+        })
+      )
+      .catch(next);
+  }
 }
 
 module.exports = new MeController();
