@@ -1,6 +1,5 @@
 <div class="mt-4">
     <h1 class="title">Danh sách khóa học</h1>
-    <a href="/me/strash/courses">Thùng rác</a>
     <table class="table mt-4">
     <thead>
         <tr>
@@ -26,12 +25,11 @@
         </tr>
         {{else}}
         <tr>
-            <td colspan="5" class="text-center">Chưa có khóa học nào.
+            <td>Chưa có khóa học nào.
                 add new course <a href="/course/create">here</a>
             </td>
         </tr>
         {{/each}}
-        
     </tbody>
     </table>
 </div>
@@ -53,40 +51,21 @@
         </div>
     </div>
 </div>
-{{!-- hidden form delete--}}
+{{!-- delete hidden form --}}
 <form name="delete-course-form" method="POST"></form>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-    let courseId;
-    let deleteForm = document.forms['delete-course-form'];
-    const deleteModal = document.getElementById('delete-course-modal');
-    const loadingElement = document.getElementById('loading');
-    let btnDeleteCourse = document.getElementById("btn-delete-course");
-
-    // Xử lý khi mở modal
-    if (deleteModal) {
-        deleteModal.addEventListener('show.bs.modal', function (event) {
-            var button = event.relatedTarget;
-            courseId = button.getAttribute('data-id');
-        });
+    document.addEventListener("DOMContentLoaded",function(){
+        let courseId;
+        let deleteForm = document.forms['delete-course-form'];
+        var delete_id = document.getElementById('delete-course-modal')
+        delete_id.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget
+        courseId = button.getAttribute('data-id')
+    })  
+    let btnDeleteCourse = document.getElementById("btn-delete-course")
+    btnDeleteCourse.onclick = function(){
+        deleteForm.action='/course/'+courseId + '?_method=DELETE' ;
+        deleteForm.submit();
     }
-
-    // Xử lý nút xóa
-    if (btnDeleteCourse) {
-        btnDeleteCourse.onclick = function () {
-            // Hiển thị hiệu ứng loading
-            if (loadingElement) {
-                loadingElement.classList.add("active");
-            }
-
-            // Cập nhật action của form
-            deleteForm.action = '/course/' + courseId + '?_method=DELETE';
-
-            // Gửi form sau 2 giây
-            setTimeout(function () {
-                deleteForm.submit();
-            }, 2000);
-        };
-    }
-});
+    });
 </script>

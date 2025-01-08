@@ -47,6 +47,7 @@ class CourseController {
       .then(() => res.redirect("/me/stored/courses"))
       .catch(next);
   }
+<<<<<<< HEAD
   // [DELETE] /course/:id/destroy
   destroy(req, res, next) {
     const courseId = req.params.id.trim();
@@ -66,6 +67,24 @@ class CourseController {
     }
     Course.restore({ _id: courseId })
       .then(() => res.status(200).send("Course restored"))
+=======
+  // [DELETE] /course/:id
+  destroy(req, res, next) {
+    Course.delete({ _id: req.params.id })
+      .then(() => res.redirect("back"))
+      .catch(next);
+  }
+  // [PATCH] /course/:id/restore
+  restore(req, res, next) {
+    Course.restore({ _id: req.params.id })
+      .then(() => res.redirect("back"))
+      .catch(next);
+  }
+  // [DELETE] /course/:id/force
+  forceDestroy(req, res, next) {
+    Course.deleteOne({ _id: req.params.id })
+      .then(() => res.redirect("back"))
+>>>>>>> fig-bug
       .catch(next);
   }
 }
