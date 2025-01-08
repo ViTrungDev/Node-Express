@@ -15,21 +15,12 @@ class MeController {
       )
       .catch(next);
   }
-<<<<<<< HEAD
-  // [GET] /me/trash/courses
-  trashCourse(req, res, next) {
-    Course.findDeleted({})
-      .then((courses) =>
-        res.render("me/trashCourses", {
-          courses: mutipMongooseToObject(courses),
-=======
   // [GET] /strash/courses
   strashCourses(req, res, next) {
     Course.findDeleted({ deletedAt: { $ne: null } })
       .then((course) =>
         res.render("me/strashCourses", {
           course: mutipMongooseToObject(course),
->>>>>>> fig-bug
         })
       )
       .catch(next);

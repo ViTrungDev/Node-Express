@@ -47,27 +47,6 @@ class CourseController {
       .then(() => res.redirect("/me/stored/courses"))
       .catch(next);
   }
-<<<<<<< HEAD
-  // [DELETE] /course/:id/destroy
-  destroy(req, res, next) {
-    const courseId = req.params.id.trim();
-    if (!mongoose.Types.ObjectId.isValid(courseId)) {
-      return res.status(400).send("Invalid ID format");
-    }
-    Course.deleteOne({ _id: courseId }) // Permanently delete the document
-      .then(() => res.status(200).send("Course deleted"))
-      .catch(next);
-  }
-
-  // [PATCH] /course/:id/restore
-  restore(req, res, next) {
-    const courseId = req.params.id.trim();
-    if (!mongoose.Types.ObjectId.isValid(courseId)) {
-      return res.status(400).send("Invalid ID format");
-    }
-    Course.restore({ _id: courseId })
-      .then(() => res.status(200).send("Course restored"))
-=======
   // [DELETE] /course/:id
   destroy(req, res, next) {
     Course.delete({ _id: req.params.id })
@@ -84,7 +63,6 @@ class CourseController {
   forceDestroy(req, res, next) {
     Course.deleteOne({ _id: req.params.id })
       .then(() => res.redirect("back"))
->>>>>>> fig-bug
       .catch(next);
   }
 }
