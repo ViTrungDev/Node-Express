@@ -7,14 +7,20 @@ const {
 class MeController {
   // [GET] /me/stored/courses
   storedCourses(req, res, next) {
-    Course.find({})
-      .then((course) =>
+    // Use Promise.all to get both the course and the deleteCount (sử lý bất đồng)
+    Promise.all([
+      Course.find({}),
+      Course.countDocumentsWithDeleted({ deleted: true }),
+    ])
+      .then(([courses, deletedCount]) =>
         res.render("me/storedCourses", {
-          course: mutipMongooseToObject(course),
+          deletedCount,
+          courses: mutipMongooseToObject(courses),
         })
       )
       .catch(next);
   }
+
   // [GET] /strash/courses
   strashCourses(req, res, next) {
     Course.findDeleted({ deletedAt: { $ne: null } })
