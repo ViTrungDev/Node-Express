@@ -38,3 +38,6 @@ display: flex;
 justify-content: flex-end !important;
 align-items:center;
 }
+.checked-select-all{
+  width: 160px !important;
+}
